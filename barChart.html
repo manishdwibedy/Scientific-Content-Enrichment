@@ -67,13 +67,13 @@ var svg = d3.select("body").append("svg")
 d3.json("data.json", function(error, data) {
 
     data.forEach(function(d) {
-        d.Letter = d.Letter;
-        d.Freq = +d.Freq;
+        d.Score = d.Score;
+        d.Count = +d.Count;
     });
 	
   // scale the range of the data
-  x.domain(data.map(function(d) { return d.Letter; }));
-  y.domain([0, d3.max(data, function(d) { return d.Freq; })]);
+  x.domain(data.map(function(d) { return d.Score; }));
+  y.domain([0, d3.max(data, function(d) { return d.Count; })]);
 
   // add axis
   svg.append("g")
@@ -102,10 +102,10 @@ d3.json("data.json", function(error, data) {
       .data(data)
     .enter().append("rect")
       .attr("class", "bar")
-      .attr("x", function(d) { return x(d.Letter); })
+      .attr("x", function(d) { return x(d.Score); })
       .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.Freq); })
-      .attr("height", function(d) { return height - y(d.Freq); });
+      .attr("y", function(d) { return y(d.Count); })
+      .attr("height", function(d) { return height - y(d.Count); });
 
 });
 
