@@ -14,11 +14,11 @@ $(function(){
 
         if(mime=='GIF')
         {
-            render('image_gif');
+            render('image_gif','image', mime);
         }
         if(mime=='TIFF')
         {
-            render('image_tiff');
+            render('image_tiff', 'image', mime);
         }
 
 
@@ -26,7 +26,7 @@ $(function(){
 
 });
 
-function render(mime)
+function render(mime, type, subtype)
 {
     $('.chart').html('');
     d3.json("data/" + mime +".json", function(data){
@@ -106,7 +106,7 @@ function render(mime)
             .text("Bin Center - Normalized Metadata Score");
 // chart title
         chart.append("text")
-            .text("5 Bins Histogram for Metada Score Diversity - Image GIF")
+            .text("5 Bins Histogram for Metada Score Diversity - " + type.toUpperCase() + ' ' + subtype)
             .attr("x", width/4)
             .attr("class","title");
     });
