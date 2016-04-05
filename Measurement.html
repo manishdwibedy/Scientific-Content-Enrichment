@@ -49,7 +49,7 @@
             .append("g")
             .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
 
-    d3.json("data/`measurement.json", function(error, root) {
+    d3.json("data/measurement.json", function(error, root) {
         if (error) throw error;
 
         var focus = root,
