@@ -17,6 +17,10 @@
     .bld {
         font-weight: bold;
     }
+
+    svg{
+        width: 100%;
+    }
 </style>
 <body>
 
@@ -41,7 +45,6 @@
 
     function draw(words) {
         d3.select("body").append("svg")
-                .attr("width", 850)
                 .attr("height", 350)
                 .attr("class", "wordcloud")
                 .append("g")
@@ -60,7 +63,7 @@
     }
 </script>
 
-<div style="width: 40%;">
+<div style="width: 100%;">
     <div class="legend">
         Commonly used words are larger and slightly faded in color.  Less common words are smaller and darker.
     </div>
