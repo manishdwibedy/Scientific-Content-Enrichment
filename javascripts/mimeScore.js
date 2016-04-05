@@ -14,12 +14,59 @@ $(function(){
 
         if(mime=='GIF')
         {
-            render('image_gif','image', mime);
+            render('1_image_gif','image', mime);
         }
-        if(mime=='TIFF')
+        else if(mime=='TIFF')
         {
-            render('image_tiff', 'image', mime);
+            render('2_image_tiff', 'image', mime);
         }
+        else if(mime=='RFC822')
+        {
+            render('3_message_rfc822', 'message', mime);
+        }
+        else if(mime=='JPEG')
+        {
+            render('4_image_jpeg', 'image', mime);
+        }
+        else if(mime=='DIF_XML')
+        {
+            render('5_application_dif+xml', 'application', mime);
+        }
+        else if(mime=='PDF')
+        {
+            render('6_application_pdf', 'application', mime);
+        }
+        else if(mime=='RTF')
+        {
+            render('7_application_rtf', 'application', mime);
+        }
+        else if(mime=='XML')
+        {
+            render('8_application_xml', 'application', mime);
+        }
+        else if(mime=='BASIC')
+        {
+            render('9_audio_basic', 'audio', mime);
+        }
+        else if(mime=='MP4')
+        {
+            render('10_audio_mp4', 'audio', mime);
+        }
+        else if(mime=='MPEG')
+        {
+            render('11_audio_mpeg', 'audio', mime);
+        }
+        else if(mime=='XHTML')
+        {
+            render('12_application_xhtml', 'application', mime);
+        }
+        else if(mime=='HTML')
+        {
+            render('13_application_HTML', 'application', mime);
+        }
+
+
+
 
 
     });
@@ -29,7 +76,7 @@ $(function(){
 function render(mime, type, subtype)
 {
     $('.chart').html('');
-    d3.json("data/" + mime +".json", function(data){
+    d3.json("data/mime_score/" + mime +".json", function(data){
         var bardata = [];
 
         for (var i=0; i < 50; i++) {
