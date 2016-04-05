@@ -28,6 +28,7 @@ $(function(){
 
 function render(mime)
 {
+    $('.chart').html('');
     d3.json("data/" + mime +".json", function(data){
         var bardata = [];
 
